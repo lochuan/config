@@ -1,3 +1,4 @@
+colorscheme delek
 set laststatus=2
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 set ruler
@@ -10,19 +11,19 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=R
 set nowrap
-syntax enable
-syntax on
-filetype indent on
 set expandtab
 set tabstop=4
 set shiftwidth=4
 let mapleader=","
 set softtabstop=4"
-inoremap jk <ESC>
 set t_Co=256
 set nocompatible              " be iMproved, required
+set backspace=indent,eol,start
 filetype on                  " required
-
+filetype indent on
+syntax enable
+syntax on
+inoremap jk <ESC>
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -66,6 +67,7 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
