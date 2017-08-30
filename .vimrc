@@ -14,7 +14,6 @@ set nowrap
 set expandtab
 set tabstop=4
 set shiftwidth=4
-let mapleader=","
 set softtabstop=4"
 set t_Co=256
 set nocompatible              " be iMproved, required
@@ -24,28 +23,49 @@ filetype indent on
 syntax enable
 syntax on
 inoremap jk <ESC>
-" set the runtime path to include Vundle and initialize
+let mapleader=","
+
+" ------ START change the status line ------
+set statusline=   " clear the statusline for when vimrc is reloaded
+set statusline+=%-3.3n\                      " buffer number
+set statusline+=%f\                          " file name
+set statusline+=%h%m%r%w                     " flags
+set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+set statusline+=%{&fileformat}]              " file format
+set statusline+=%=                           " right align
+set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  "highlight
+set statusline+=%b,0x%-8B\                   " current char
+set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset"
+" ------ END change the status line------
+
+
+" ------ Vundle ------
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" --------------------
+
 Plugin 'VundleVim/Vundle.vim'
-" The following are examples of different formats supported.
+
+
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+
+
 Plugin 'Yggdroot/indentLine'
-" Vim
 let g:indentLine_color_term = 239
-"GVim
 let g:indentLine_color_gui = '#A4E57E'
-" none X terminal
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)"
 let g:indentLine_char = '|'
 nnoremap <leader>i :IndentLinesToggle <cr>
+
 
 Plugin 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0 " Disable default mappings"
@@ -74,8 +94,12 @@ Plugin 'ervandew/supertab'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'L9'
 Plugin 'jiangmiao/auto-pairs'
+
+
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle <CR>
+
+
 Plugin 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,5 +115,3 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
-"
