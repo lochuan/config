@@ -4,6 +4,7 @@ set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 set ruler
 set number
 set hlsearch
+set relativenumber
 set background=dark
 set gcr=a:block-blinkon0
 set guioptions-=l
@@ -95,6 +96,9 @@ Plugin 'othree/vim-autocomplpop'
 Plugin 'L9'
 Plugin 'jiangmiao/auto-pairs'
 
+Plugin 'pseewald/vim-anyfold'
+let anyfold_activate=1
+set foldlevel=10
 
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle <CR>
