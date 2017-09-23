@@ -89,21 +89,22 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+" cs"' change surround from " to '
+" ds" delete surround "
+" ysiw] yank surround in word
 
+Plugin 'vim-syntastic/syntastic'
+Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
-Plugin 'othree/vim-autocomplpop'
 Plugin 'L9'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'
-
 Plugin 'pseewald/vim-anyfold'
 let anyfold_activate=1
 set foldlevel=10
-
-Plugin 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle <CR>
-
-
 Plugin 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -119,3 +120,15 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
+"
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
