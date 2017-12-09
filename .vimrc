@@ -36,7 +36,7 @@ let g:sneak#label = 1
 " ------ START change the status line ------
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=%-3.3n\                      " buffer number
-set statusline+=%f\                          " file name
+set statusline+=[%F]
 set statusline+=%h%m%r%w                     " flags
 set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
