@@ -1,4 +1,4 @@
-colorscheme slate
+colorscheme gruvbox
 set laststatus=2
 set encoding=utf8
 set ruler
@@ -29,7 +29,7 @@ filetype on                  " required
 filetype indent on
 syntax enable
 syntax on
-inoremap jk <ESC>
+inoremap jk <ESC> 
 let mapleader=","
 let g:sneak#label = 1
 
@@ -73,11 +73,13 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)"
 let g:indentLine_char = '|'
 nnoremap <leader>i :IndentLinesToggle <cr>
+
 Plugin 'tpope/vim-repeat'
+
 Plugin 'tpope/vim-surround'
 " cs"' change surround from " to '
 " ds" delete surround "
-" ysiw] yank surround in word
+" ysiw add surround
 
 Plugin 'justinmk/vim-sneak'
 Plugin 'vim-syntastic/syntastic'
@@ -89,6 +91,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'pseewald/vim-anyfold'
 let anyfold_activate=1
 set foldlevel=10
+
 Plugin 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,15 +107,29 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
-"
 
+
+" ------ START syntastic setting------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+" ------ END syntastic setting------
 
+" ------ Window switch remapping -----
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
