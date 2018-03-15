@@ -1,3 +1,15 @@
+"==========================================Shortcuts===========================================
+" :e -> filename   编辑文件
+" :tabe -> 在Tab中编辑文件
+" :gt -> Go next tab 
+" :gT -> Go prev tab 
+" Ctrl + r -> Redo
+" u -> Undo 
+" :r !command -> 把命令输出粘帖到编辑区 
+" Ctrl + n -> Next pop up completion
+" Ctrl + p -> Prev pop up completion
+"==============================================================================================
+
 colorscheme gruvbox
 set laststatus=2
 set encoding=utf8
@@ -33,7 +45,8 @@ inoremap jk <ESC>
 let mapleader=","
 let g:sneak#label = 1
 
-" ------ START change the status line ------
+"#StatusLine
+"-------------------------------------
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=[%F]
@@ -45,10 +58,10 @@ set statusline+=%=                           " right align
 set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  "highlight
 set statusline+=%b,0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset"
-" ------ END change the status line------
+"--------------------------------------
 
-
-" ------ Vundle ------
+"#Vundle Init
+"-------------------------------------
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -56,16 +69,30 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" --------------------
+"-------------------------------------
 
+
+
+
+"===============================================Plugins===============================================
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'L9'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'jiangmiao/auto-pairs'
 
-
+"#Nerdtree
+"-------------------------------------
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+"Toggle with Ctrl + n
+"-------------------------------------
 
-
+"#Indentline
+"-------------------------------------
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#A4E57E'
@@ -73,26 +100,49 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)"
 let g:indentLine_char = '|'
 nnoremap <leader>i :IndentLinesToggle <cr>
+"Toggle with , + i
+"-------------------------------------
 
-Plugin 'tpope/vim-repeat'
-
+"#Surround
+"-------------------------------------
 Plugin 'tpope/vim-surround'
 " cs"' change surround from " to '
 " ds" delete surround "
 " ysiw add surround
+"-------------------------------------
 
+"#Vim-sneak
+"-------------------------------------
 Plugin 'justinmk/vim-sneak'
-Plugin 'vim-syntastic/syntastic'
+" s + two alphabets -> Fast move
+" Ctrl + o -> Back to original cursor position
+"-------------------------------------
+
+"#Commenter
+"-------------------------------------
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'L9'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/AutoComplPop'
-Plugin 'jiangmiao/auto-pairs'
+" ,cc -> Comment out current line
+" ,cu -> uncomment
+" ,cs -> block style comment
+" ,cy -> yank first and comment
+"-------------------------------------
+
+"#Commenter
+"-------------------------------------
 Plugin 'pseewald/vim-anyfold'
 let anyfold_activate=1
 set foldlevel=10
+" za -> close fold
+"-------------------------------------
 
+"#Tabular
+"-------------------------------------
 Plugin 'godlygeek/tabular'
+" Tabularize /,
+"-------------------------------------
+
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -103,7 +153,7 @@ filetype plugin indent on    " required
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto       - approve removal
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
