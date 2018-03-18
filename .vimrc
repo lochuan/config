@@ -72,16 +72,12 @@ call vundle#begin()
 "-------------------------------------
 
 
-
-
 "===============================================Plugins===============================================
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'L9'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-scripts/AutoComplPop'
 
 "#Nerdtree
 "-------------------------------------
@@ -127,7 +123,7 @@ Plugin 'scrooloose/nerdcommenter'
 " ,cy -> yank first and comment
 "-------------------------------------
 
-"#Commenter
+"#Anyfold
 "-------------------------------------
 Plugin 'pseewald/vim-anyfold'
 let anyfold_activate=1
@@ -141,6 +137,11 @@ Plugin 'godlygeek/tabular'
 " Tabularize /,
 "-------------------------------------
 
+"#ALE
+"-------------------------------------
+Plugin 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
+"-------------------------------------
 
 
 " All of your Plugins must be added before the following line
@@ -159,27 +160,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" ------ START syntastic setting------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-" ------ END syntastic setting------
 
-" ------ Window switch remapping -----
+"------- Window switch remapping -----
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+"-------------------------------------
