@@ -127,6 +127,8 @@ Plug 'godlygeek/tabular'
 "-------------------------------------
 Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "-------------------------------------
 
 "#Completor
@@ -135,11 +137,3 @@ Plug 'maralla/completor.vim'
 "-------------------------------------
 call plug#end()
 
-
-
-"------- Window switch remapping -----
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-"-------------------------------------
