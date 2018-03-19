@@ -45,43 +45,29 @@ inoremap jk <ESC>
 let mapleader=","
 let g:sneak#label = 1
 
-"#StatusLine
+"##### Plugs #####
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'SirVer/ultisnips' 
+
+"#Airlinetheme
 "-------------------------------------
-set statusline=   " clear the statusline for when vimrc is reloaded
-set statusline+=%-3.3n\                      " buffer number
-set statusline+=[%F]
-set statusline+=%h%m%r%w                     " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-set statusline+=%{&fileformat}]              " file format
-set statusline+=%=                           " right align
-set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  "highlight
-set statusline+=%b,0x%-8B\                   " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset"
-"--------------------------------------
-
-"#Vundle Init
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='angr'
 "-------------------------------------
-"set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
+"
+"#Markdown
 "-------------------------------------
-
-
-"===============================================Plugins===============================================
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'L9'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-scripts/AutoComplPop'
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_conceal = 0
+"-------------------------------------
 
 "#Nerdtree
 "-------------------------------------
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 "Toggle with Ctrl + n
@@ -89,7 +75,7 @@ let g:NERDTreeWinPos = "right"
 
 "#Indentline
 "-------------------------------------
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_color_tty_light = 7 " (default: 4)
@@ -101,7 +87,7 @@ nnoremap <leader>i :IndentLinesToggle <cr>
 
 "#Surround
 "-------------------------------------
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " cs"' change surround from " to '
 " ds" delete surround "
 " ysiw add surround
@@ -109,14 +95,14 @@ Plugin 'tpope/vim-surround'
 
 "#Vim-sneak
 "-------------------------------------
-Plugin 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 " s + two alphabets -> Fast move
 " Ctrl + o -> Back to original cursor position
 "-------------------------------------
 
 "#Commenter
 "-------------------------------------
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " ,cc -> Comment out current line
 " ,cu -> uncomment
 " ,cs -> block style comment
@@ -125,7 +111,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 "#Anyfold
 "-------------------------------------
-Plugin 'pseewald/vim-anyfold'
+Plug 'pseewald/vim-anyfold'
 let anyfold_activate=1
 set foldlevel=10
 " za -> close fold
@@ -133,31 +119,21 @@ set foldlevel=10
 
 "#Tabular
 "-------------------------------------
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " Tabularize /,
 "-------------------------------------
 
 "#ALE
 "-------------------------------------
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 "-------------------------------------
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto       - approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"#Completor
+"-------------------------------------
+Plug 'maralla/completor.vim'
+"-------------------------------------
+call plug#end()
 
 
 
