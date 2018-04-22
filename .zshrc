@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/lochuan/.oh-my-zsh
+export ZSH=/home/lochuan/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 
 # Set name of the theme to load.
@@ -64,11 +64,11 @@ alias vi=vim
 # You may need to manually set your language environment
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

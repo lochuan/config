@@ -11,6 +11,8 @@
 "==============================================================================================
 
 colorscheme gruvbox
+set colorcolumn=80
+set cursorcolumn
 set laststatus=2
 set encoding=utf8
 set ruler
