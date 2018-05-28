@@ -1,4 +1,4 @@
-"==========================================Shortcuts===========================================
+"======================Shortcuts===========================================
 " :e -> filename   编辑文件
 " :tabe -> 在Tab中编辑文件
 " :gt -> Go next tab 
@@ -8,9 +8,11 @@
 " :r !command -> 把命令输出粘帖到编辑区 
 " Ctrl + n -> Next pop up completion
 " Ctrl + p -> Prev pop up completion
-"==============================================================================================
+" :w !sudo tee % 存储Read-Only文件
+"==========================================================================
 
 colorscheme gruvbox
+set cursorline
 set colorcolumn=80
 set cursorcolumn
 set laststatus=2
@@ -136,6 +138,49 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "#Completor
 "-------------------------------------
 Plug 'maralla/completor.vim'
+let g:completor_python_binary = '/usr/bin/python3'
+"-------------------------------------
+"
+
+"#DrawIt
+"-------------------------------------
+Plug 'vim-scripts/DrawIt'
+
+"\di to start DrawIt and
+"\ds to stop  DrawIt.
+"<left>       move and draw left
+"<right>      move and draw right, inserting lines/space as needed
+"<up>         move and draw up, inserting lines/space as needed
+"<down>       move and draw down, inserting lines/space as needed
+"<s-left>     move left
+"<s-right>    move right, inserting lines/space as needed
+"<s-up>       move up, inserting lines/space as needed
+"<s-down>     move down, inserting lines/space as needed
+"<space>      toggle into and out of erase mode
+">            draw -> arrow
+"<            draw <- arrow
+"^            draw ^  arrow
+"v            draw v  arrow
+"<pgdn>       replace with a \, move down and right, and insert a \
+"<end>        replace with a /, move down and left,  and insert a /
+"<pgup>       replace with a /, move up   and right, and insert a /
+"<home>       replace with a \, move up   and left,  and insert a \
+"\>           draw fat -> arrow
+"\<           draw fat <- arrow
+"\^           draw fat ^  arrow
+"\v           draw fat v  arrow
+"\a           draw arrow based on corners of visual-block
+"\b           draw box using visual-block selected region
+"\e           draw an ellipse inside visual-block
+"\f           fill a figure with some character
+"\h           create a canvas for \a \b \e \l
+"\l           draw line based on corners of visual block
+"\s           adds spaces to canvas
+"<leftmouse>  select visual block
+"<s-leftmouse>  drag and draw with current brush (register)
+"\ra ... \rz  replace text with given brush/register
+"\pa ...      like \ra ... \rz, except that blanks are considered
+             "to be transparent
 "-------------------------------------
 call plug#end()
 
