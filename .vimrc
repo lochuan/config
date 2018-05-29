@@ -136,9 +136,13 @@ let g:ale_lint_on_text_changed = 'never'
 "#Completor
 "-------------------------------------
 Plug 'maralla/completor.vim'
-let g:completor_python_binary = '/usr/bin/python3'
+let g:completor_python_binary = '/usr/local/bin/python3'
 "-------------------------------------
-"
+
+"#leaderF
+"-------------------------------------
+Plug 'Yggdroot/LeaderF'
+"-------------------------------------
 
 "#DrawIt
 "-------------------------------------

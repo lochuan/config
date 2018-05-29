@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/lochuan/.oh-my-zsh
+export ZSH=/Users/lochuan/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -19,7 +18,7 @@ ZSH_THEME="ys"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -50,24 +49,24 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z d web-search)
+plugins=(z d)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/lochuan/.cargo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 alias -s h=st
-alias vi=vim
+alias vi="/usr/local/bin/vim"
 # You may need to manually set your language environment
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
