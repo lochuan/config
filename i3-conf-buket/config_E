@@ -134,32 +134,39 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+j workspace next
-bindsym $mod+Ctrl+k workspace prev
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1:Terminal_E
-set $ws2 2:Browser_E
-set $ws3 3:IDE_E
-set $ws4 4:Misc_E
-set $ws5 5:Terminal
-set $ws6 6:Browser
-set $ws7 7:File
-set $ws8 8:Misc
+set $ws1 1:Terminal
+set $ws2 2:Browser
+set $ws3 3:Email
+set $ws4 4:File
+set $ws5 5:IDE
+set $ws6 6:Palette
+set $ws7 7:Palette_E
 
 # Put specific ws to specific monitor
-workspace "1:Terminal_E" output E_SCREEN
-workspace "2:Browser_E" output E_SCREEN
-workspace "3:IDE_E" output E_SCREEN
-workspace "4:Misc_E" output E_SCREEN
+workspace "1:Terminal" output E_SCREEN
+workspace "4:File" output E_SCREEN
+workspace "5:IDE" output E_SCREEN
+workspace "7:Palette_E" output E_SCREEN
 
-workspace "5:Terminal" output eDP1
-workspace "6:Browser" output eDP1
-workspace "7:File" output eDP1
-workspace "8:Misc" output eDP1
+workspace "2:Browser" output eDP1
+workspace "3:Email" output eDP1
+workspace "6:Palette" output eDP1
+
+# Assign Software to ws
+assign [class="Sakura"] $ws1
+assign [class="Terminal"] $ws1
+assign [class="Firefox"] $ws2
+assign [class="Pcmanfm"] $ws4
+assign [class="Epdfview"] $ws4
+assign [class="Thunderbird"] $ws3
+assign [class="libreoffice-startcenter"] $ws6
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -168,18 +175,16 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
 
 # Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
+#bindsym $mod+Ctrl+1 move container to workspace $ws1
+#bindsym $mod+Ctrl+2 move container to workspace $ws2
+#bindsym $mod+Ctrl+3 move container to workspace $ws3
+#bindsym $mod+Ctrl+4 move container to workspace $ws4
+#bindsym $mod+Ctrl+5 move container to workspace $ws5
+#bindsym $mod+Ctrl+6 move container to workspace $ws6
+#bindsym $mod+Ctrl+7 move container to workspace $ws7
+#bindsym $mod+Ctrl+8 move container to workspace $ws8
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -188,18 +193,11 @@ bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-
-# Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
+for_window [class="Pcmanfm"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
@@ -285,7 +283,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -293,7 +290,6 @@ exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_lochuan
-# exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 5 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
