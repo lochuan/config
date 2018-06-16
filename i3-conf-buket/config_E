@@ -143,7 +143,7 @@ bindsym $mod+Left workspace prev
 #                 set $ws2 2:
 set $ws1 1:Terminal
 set $ws2 2:Browser
-set $ws3 3:Email
+set $ws3 3:Msg
 set $ws4 4:File
 set $ws5 5:IDE
 set $ws6 6:Palette
@@ -156,7 +156,7 @@ workspace "5:IDE" output E_SCREEN
 workspace "7:Palette_E" output E_SCREEN
 
 workspace "2:Browser" output eDP1
-workspace "3:Email" output eDP1
+workspace "3:Msg" output eDP1
 workspace "6:Palette" output eDP1
 
 # Assign Software to ws
@@ -166,6 +166,7 @@ assign [class="Firefox"] $ws2
 assign [class="Pcmanfm"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Thunderbird"] $ws3
+assign [class="dingtalk"] $ws3
 assign [class="libreoffice-startcenter"] $ws6
 
 # switch to workspace
