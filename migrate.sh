@@ -10,7 +10,7 @@ function backup(){
     mkdir -p "$HOME/Documents/config/i3-conf-buket"
     rsync -r "$HOME/.i3-conf-buket/" "$HOME/Documents/config/i3-conf-buket"
     mkdir -p "$HOME/Documents/config/screenlayout"
-    rsync -r "$HOME/.screenlayout" "$HOME/Documents/config/screenlayout"
+    rsync -r "$HOME/.screenlayout/" "$HOME/Documents/config/screenlayout"
     git add .
     git commit -a -m "update time: $(date)"
     git push origin HEAD
