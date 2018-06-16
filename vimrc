@@ -1,4 +1,4 @@
-"======================Shortcuts===========================================
+"/======================Shortcuts===========================================
 " :e -> filename   编辑文件
 " :tabe -> 在Tab中编辑文件
 " :gt -> Go next tab 
@@ -60,7 +60,7 @@ Plug 'SirVer/ultisnips'
 "#Airlinetheme
 "-------------------------------------
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='angr'
+let g:airline_theme='base16'
 "-------------------------------------
 "
 "#Markdown
@@ -130,13 +130,14 @@ Plug 'godlygeek/tabular'
 "#ALE
 "-------------------------------------
 Plug 'w0rp/ale'
+let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 "-------------------------------------
 
 "#Completor
 "-------------------------------------
 Plug 'maralla/completor.vim'
-let g:completor_python_binary = '/usr/local/bin/python3'
+let g:completor_python_binary = '/usr/bin/python3'
 "-------------------------------------
 
 "#leaderF

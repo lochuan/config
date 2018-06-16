@@ -1,11 +1,10 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/lochuan/.oh-my-zsh
+#  Path to your oh-my-zsh installation.
+export ZSH=/home/lochuan/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,11 +48,9 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z d web-search git)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/lochuan/.local/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/lochuan/.local/bin:/home/lochuan/.cargo/bin"
 
 # User configuration
 
@@ -62,7 +59,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/lochuan/.local/b
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 alias -s h=st
-alias vi="/usr/local/bin/vim"
+alias vi="/usr/bin/vim"
 # You may need to manually set your language environment
 
 # Preferred editor for local and remote sessions
@@ -71,6 +68,7 @@ alias vi="/usr/local/bin/vim"
  else
    export EDITOR='vim'
  fi
+# Settings
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,3 +84,26 @@ alias vi="/usr/local/bin/vim"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source /home/lochuan/.oh-my-zsh/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+
+antigen bundle --loc=plugins/z
+antigen bundle --loc=plugins/git
+antigen bundle --loc=plugins/colored-man-pages
+antigen bundle zsh-users/zsh-completions
+
+# Theme
+antigen theme "ys"
+
+# Tell Antigen that you're done.
+antigen apply
