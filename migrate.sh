@@ -10,7 +10,7 @@ function backup(){
     cp -f -r "$HOME/.i3-conf-buket" "$HOME/Documents/config/i3-conf-buket"
     cp -f -r "$HOME/.screenlayout" "$HOME/Documents/config/screenlayout"
     git add .
-    git commit -a -m "\"$(date)\""
+    git commit -a -m "update time: $(date)"
     git push origin HEAD
 }
 
