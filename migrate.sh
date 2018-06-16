@@ -17,13 +17,13 @@ function backup(){
 function restore(){
     echo 'restore...'
     git pull
-    cp -f "$HOME/Documents/config/vimrc $HOME/.vimrc"
-    cp -f "$HOME/Documents/config/zshrc $HOME/.zshrc"
-    cp -f "$HOME/Documents/config/tmux.conf $HOME/.tmux.conf"
-    cp -f -r "$HOME/Documents/config/i3-conf-buket $HOME/.i3-conf-buket"
-    cp -f -r "$HOME/Documents/config/screenlayout $HOME/.screenlayout"
-    sudo cp -f "$HOME/Documents/config/conky_lochuan /usr/share/conky/conky_lochuan"
-    sudo ln -s "$HOME/Documents/config/screenlayout/verify_ext_type.sh /etc/X11/xinit/xinitrc.d/verify_ext_type.sh"
+    cp -f "$HOME/Documents/config/vimrc" "$HOME/.vimrc"
+    cp -f "$HOME/Documents/config/zshrc" "$HOME/.zshrc"
+    cp -f "$HOME/Documents/config/tmux.conf" "$HOME/.tmux.conf"
+    cp -f -r "$HOME/Documents/config/i3-conf-buket" "$HOME/.i3-conf-buket"
+    cp -f -r "$HOME/Documents/config/screenlayout" "$HOME/.screenlayout"
+    sudo cp -f "$HOME/Documents/config/conky_lochuan" "/usr/share/conky/conky_lochuan"
+    sudo ln -f -s "$HOME/Documents/config/screenlayout/verify_ext_type.sh" "/etc/X11/xinit/xinitrc.d/verify_ext_type.sh"
 }
 
 if [ $# -ne 1 ]; then
