@@ -7,8 +7,10 @@ function backup(){
     cp -f "$HOME/.zshrc" "$HOME/Documents/config/zshrc"
     cp -f "$HOME/.tmux.conf" "$HOME/Documents/config/tmux.conf"
     cp -f "/usr/share/conky/conky_lochuan" "$HOME/Documents/config/conky_lochuan"
-    cp -f -r "$HOME/.i3-conf-buket" "$HOME/Documents/config/i3-conf-buket"
-    cp -f -r "$HOME/.screenlayout" "$HOME/Documents/config/screenlayout"
+    mkdir -p "$HOME/Documents/config/i3-conf-buket"
+    rsync -r "$HOME/.i3-conf-buket/" "$HOME/Documents/config/i3-conf-buket"
+    mkdir -p "$HOME/Documents/config/screenlayout"
+    rsync -r "$HOME/.screenlayout" "$HOME/Documents/config/screenlayout"
     git add .
     git commit -a -m "update time: $(date)"
     git push origin HEAD
