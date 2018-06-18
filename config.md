@@ -3,6 +3,9 @@ Alt_L -> Meta_L
 Meta_L -> Alt_L
 
 /etc/udev/hwdb.d/
+cat /proc/bus/input/devices | less -> 查看键盘设备码
+sudo showkeys -s 查看scancode
+/usr/include/linux/input-event-codes.h -> 查看keycode
 
 
 锁屏模糊:

@@ -26,6 +26,9 @@ font xft:URWGothic-Book 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
+# Floating Window Maximum Size
+floating_maximum_size 1000 x 600
+
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
@@ -162,7 +165,7 @@ workspace "6:Palette" output eDP1
 # Assign Software to ws
 assign [class="Gnome-terminal"] $ws1
 assign [class="Terminal"] $ws1
-assign [class="Vimb"] $ws2
+assign [class="qutebrowser"] $ws2
 assign [class="Pcmanfm"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Thunderbird"] $ws3
@@ -172,7 +175,7 @@ assign [class="libreoffice-startcenter"] $ws6
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
+bindsym $mod+3 workspace $ws3; layout tabbed
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6

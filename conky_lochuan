@@ -1,7 +1,7 @@
 conky.config = {
 	alignment = 'top_right',
 	background = true,
-    xinerama_head = 3,
+    xinerama_head = 1,
 	cpu_avg_samples = 2,
 	double_buffer = true,
 	font = 'Noto Sans Bold:size=10',
