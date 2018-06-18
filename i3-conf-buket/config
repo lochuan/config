@@ -157,7 +157,7 @@ workspace "6:Palette" output eDP1
 # Assign Software to ws
 assign [class="Gnome-terminal"] $ws1
 assign [class="Terminal"] $ws1
-assign [class="Firefox"] $ws2
+assign [class="Vimb"] $ws2
 assign [class="Pcmanfm"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Thunderbird"] $ws3
@@ -185,7 +185,7 @@ bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
