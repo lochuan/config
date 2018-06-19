@@ -298,6 +298,8 @@ exec --no-startup-id start_conky_lochuan
 exec --no-startup-id xautolock -time 5 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+# Start Fcitx
+exec --no-startup-id fcitx
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -431,8 +433,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-# Start Fcitx
-exec --no-startup-id fcitx
-
-# Load external screen layout
-exec --no-startup-id ~/.screenlayout/external_screen.sh

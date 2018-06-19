@@ -9,8 +9,6 @@ function backup(){
     cp -f "/usr/share/conky/conky_lochuan" "$HOME/Documents/config/conky_lochuan"
     mkdir -p "$HOME/Documents/config/i3-conf-buket"
     rsync -r "$HOME/.i3-conf-buket/" "$HOME/Documents/config/i3-conf-buket"
-    mkdir -p "$HOME/Documents/config/screenlayout"
-    rsync -r "$HOME/.screenlayout/" "$HOME/Documents/config/screenlayout"
     git add .
     git commit -a -m "update time: $(date)"
     git push origin HEAD
@@ -24,8 +22,6 @@ function restore(){
     cp -f "$HOME/Documents/config/tmux.conf" "$HOME/.tmux.conf"
     mkdir -p "$HOME/.i3-conf-buket"
     rsync -r "$HOME/Documents/config/i3-conf-buket/" "$HOME/.i3-conf-buket"
-    mkdir -p "$HOME/.screenlayout"
-    rsync -r "$HOME/Documents/config/screenlayout/" "$HOME/.screenlayout"
     sudo cp -f "$HOME/Documents/config/conky_lochuan" "/usr/share/conky/conky_lochuan"
     sudo ln -f -s "$HOME/Documents/config/screenlayout/verify_ext_type.sh" "/etc/X11/xinit/xinitrc.d/verify_ext_type.sh"
 }

@@ -296,8 +296,6 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # Start Fcitx
 exec --no-startup-id fcitx
-# Load external screen layout
-exec --no-startup-id ~/.screenlayout/external_screen.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
