@@ -165,7 +165,7 @@ workspace "6:Palette" output eDP1
 # Assign Software to ws
 assign [class="Gnome-terminal"] $ws1
 assign [class="Terminal"] $ws1
-assign [class="qutebrowser"] $ws2
+assign [class="Google-chrome"] $ws2
 assign [class="Pcmanfm"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Thunderbird"] $ws3
