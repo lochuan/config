@@ -1,4 +1,4 @@
-# i3 config file (v4)
+#0 i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -162,7 +162,7 @@ assign [class="Gnome-terminal"] $ws1
 assign [class="Terminal"] $ws1
 assign [class="Google-chrome"] $ws2
 assign [class="Pcmanfm"] $ws4
-assign [class="Epdfview"] $ws4
+assign [class="Evince"] $ws4
 assign [class="Thunderbird"] $ws3
 assign [class="dingtalk"] $ws3
 assign [class="libreoffice-startcenter"] $ws6
