@@ -6,7 +6,7 @@ function backup(){
     cp -f "$HOME/.vimrc" "$HOME/Documents/config/vimrc"
     cp -f "$HOME/.zshrc" "$HOME/Documents/config/zshrc"
     cp -f "$HOME/.zimrc" "$HOME/Documents/config/zimrc"
-    cp -R "$HOME/.vim/colors $HOME/Documents/config/vim/colors"
+    cp -f "$HOME/.vim/colors/gruvbox.vim $HOME/Documents/config/vim/colors/gruvbox.vim"
     git add .
     git commit -a -m "update time: $(date)"
     git push origin HEAD
@@ -18,7 +18,7 @@ function restore(){
     cp -f "$HOME/Documents/config/vimrc" "$HOME/.vimrc"
     cp -f "$HOME/Documents/config/zshrc" "$HOME/.zshrc"
     cp -f "$HOME/Documents/config/zimrc" "$HOME/.zimrc"
-    cp -a "$HOME/Documents/config/vim/colors $HOME/.vim/colors"
+    cp -f "$HOME/Documents/config/vim/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim"
 }
 
 if [ $# -ne 1 ]; then
