@@ -46,7 +46,7 @@ filetype indent on
 syntax enable
 syntax on
 inoremap jk <ESC>`^
-let mapleader=","
+let mapleader=";"
 let g:sneak#label = 1
 
 "##### Plugs #####
@@ -57,21 +57,24 @@ Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'SirVer/ultisnips' 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
+Plug 'scrooloose/nerdcommenter'
+Plug 'godlygeek/tabular'
+Plug 'Yggdroot/LeaderF'
+Plug 'junegunn/goyo.vim'
 
 "#Ack
 "-------------------------------------
 Plug 'mileszs/ack.vim'
+nnoremap <leader>ss :Ack 
 "-------------------------------------
 
-"#Autoformat
+"# Completor
 "-------------------------------------
-Plug 'Chiel92/vim-autoformat'
-"-------------------------------------
-
-"#Markdown
-"-------------------------------------
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_conceal = 0
+Plug 'maralla/completor.vim'
+let g:completor_python_binary = '/usr/local/bin/python3'
+let g:completor_node_binary = '/usr/local/bin/node'
 "-------------------------------------
 
 "#Nerdtree
@@ -91,31 +94,7 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)"
 let g:indentLine_char = '|'
 nnoremap <leader>i :IndentLinesToggle <cr>
-"Toggle with , + i
-"-------------------------------------
-
-"#Surround
-"-------------------------------------
-Plug 'tpope/vim-surround'
-" cs"' change surround from " to '
-" ds" delete surround "
-" ysiw add surround
-"-------------------------------------
-
-"#Vim-sneak
-"-------------------------------------
-Plug 'justinmk/vim-sneak'
-" s + two alphabets -> Fast move
-" Ctrl + o -> Back to original cursor position
-"-------------------------------------
-
-"#Commenter
-"-------------------------------------
-Plug 'scrooloose/nerdcommenter'
-" ,cc -> Comment out current line
-" ,cu -> uncomment
-" ,cs -> block style comment
-" ,cy -> yank first and comment
+"Toggle with <Leader> + i
 "-------------------------------------
 
 "#Anyfold
@@ -126,27 +105,19 @@ set foldlevel=10
 " za -> close fold
 "-------------------------------------
 
-"#Tabular
-"-------------------------------------
-Plug 'godlygeek/tabular'
-" Tabularize /,
-"-------------------------------------
-
 "#ALE
 "-------------------------------------
 Plug 'w0rp/ale'
-let g:ale_lint_on_text_changed = 'never'
-"-------------------------------------
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:ale_completion_enabled = 1
 
-"#Completor
-"-------------------------------------
-Plug 'maralla/completor.vim'
-let g:completor_python_binary = '/usr/local/bin/python3'
-"-------------------------------------
+let b:ale_linters = ['flake8']
+let b:ale_fixers = ['yapf']
+let b:ale_warn_about_trailing_whitespace = 0
 
-"#leaderF
-"-------------------------------------
-Plug 'Yggdroot/LeaderF'
+nmap <silent> <leader>nn <Plug>(ale_next_wrap)
+nmap <silent> <leader>xx :ALEFix<CR>
 "-------------------------------------
 
 "#DrawIt
@@ -190,12 +161,3 @@ Plug 'vim-scripts/DrawIt'
              "to be transparent
 "-------------------------------------
 call plug#end()
-
-
-"------- Window switch remapping -----
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <F4> :!push<CR>
-"-------------------------------------
