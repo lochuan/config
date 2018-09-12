@@ -7,7 +7,7 @@ function backup(){
     cp -f "$HOME/.vimrc" "$HOME/Documents/config/vimrc"
     cp -f "$HOME/.zshrc" "$HOME/Documents/config/zshrc"
     cp -f "$HOME/.zimrc" "$HOME/Documents/config/zimrc"
-    cp -a "$HOME/.vim/colors" "$HOME/Documents/config/vim/"
+    cp -a "$HOME/.vim/colors" "$HOME/Documents/config/vim/colors/"
     git add .
     git commit -a -m "update time: $(date)"
     git push origin HEAD
