@@ -108,11 +108,11 @@ set foldlevel=10
 "#ALE
 "-------------------------------------
 Plug 'w0rp/ale'
+let g:ale_linters_explicit = 1
 let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:ale_completion_enabled = 1
 
 let b:ale_linters = ['flake8']
+let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = ['yapf']
 let b:ale_warn_about_trailing_whitespace = 0
 
