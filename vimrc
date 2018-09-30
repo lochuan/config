@@ -64,6 +64,21 @@ Plug 'godlygeek/tabular'
 Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/goyo.vim'
 
+"#ALE
+"-------------------------------------
+Plug 'w0rp/ale'
+let g:ale_linters_explicit = 1
+let g:ale_sign_column_always = 1
+
+let g:ale_python_flake8_options='--ignore E501'
+let g:ale_linters = {'python': ['mypy', 'flake8']}
+let g:ale_fixers = {'python': ['yapf']}
+let g:ale_warn_about_trailing_whitespace = 0
+
+nmap <silent> <leader>nn <Plug>(ale_next_wrap)
+nmap <silent> <leader>xx :ALEFix<CR>
+"-------------------------------------
+
 "#Ack
 "-------------------------------------
 Plug 'mileszs/ack.vim'
@@ -75,6 +90,7 @@ nnoremap <leader>ss :Ack
 Plug 'maralla/completor.vim'
 let g:completor_python_binary = '/usr/local/bin/python3'
 let g:completor_node_binary = '/usr/local/bin/node'
+let g:completor_clang_binary = '/usr/bin/clang'
 "-------------------------------------
 
 "#Nerdtree
@@ -105,20 +121,6 @@ set foldlevel=10
 " za -> close fold
 "-------------------------------------
 
-"#ALE
-"-------------------------------------
-Plug 'w0rp/ale'
-let g:ale_linters_explicit = 1
-let g:ale_sign_column_always = 1
-
-let b:ale_linters = ['flake8']
-let b:ale_linters = {'python': ['flake8']}
-let b:ale_fixers = ['yapf']
-let b:ale_warn_about_trailing_whitespace = 0
-
-nmap <silent> <leader>nn <Plug>(ale_next_wrap)
-nmap <silent> <leader>xx :ALEFix<CR>
-"-------------------------------------
 
 "#DrawIt
 "-------------------------------------
