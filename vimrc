@@ -63,17 +63,33 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/goyo.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 "#ALE
 "-------------------------------------
 Plug 'w0rp/ale'
-let g:ale_linters_explicit = 1
-let g:ale_sign_column_always = 1
-
-let g:ale_python_flake8_options='--ignore E501'
-let g:ale_linters = {'python': ['mypy', 'flake8']}
-let g:ale_fixers = {'python': ['yapf']}
 let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_linters = {'python': ['mypy', 'flake8'], 'go': ['gometalinter']}
+let g:ale_fixers = {'python': ['yapf']}
+
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+
+let g:ale_sign_column_always = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
+let g:ale_open_list = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_flake8_options='--ignore E501'
 
 nmap <silent> <leader>nn <Plug>(ale_next_wrap)
 nmap <silent> <leader>xx :ALEFix<CR>
@@ -91,6 +107,7 @@ Plug 'maralla/completor.vim'
 let g:completor_python_binary = '/usr/local/bin/python3'
 let g:completor_node_binary = '/usr/local/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
+let g:completor_gocode_binary = '/Users/tron/.go/bin/gocode'
 "-------------------------------------
 
 "#Nerdtree
@@ -160,6 +177,6 @@ Plug 'vim-scripts/DrawIt'
 "<s-leftmouse>  drag and draw with current brush (register)
 "\ra ... \rz  replace text with given brush/register
 "\pa ...      like \ra ... \rz, except that blanks are considered
-             "to be transparent
+"to be transparent
 "-------------------------------------
 call plug#end()
