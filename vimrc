@@ -13,7 +13,6 @@
 
 colorscheme gruvbox
 set cursorline
-set colorcolumn=80
 set cursorcolumn
 set laststatus=2
 set encoding=utf8
@@ -63,25 +62,24 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/goyo.vim'
-Plug 'terryma/vim-multiple-cursors'
 
 "#ALE
 "-------------------------------------
 Plug 'w0rp/ale'
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_linters = {'python': ['mypy', 'flake8'], 'go': ['gometalinter']}
-let g:ale_fixers = {'python': ['yapf']}
+let g:ale_fixers = {'python': ['yapf'], 'go': ['gofmt']}
+
+let g:ale_linters_explicit = 1
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 
 let g:ale_sign_column_always = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 1
 
 let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
-let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -113,9 +111,8 @@ let g:completor_gocode_binary = '/Users/tron/.go/bin/gocode'
 "#Nerdtree
 "-------------------------------------
 Plug 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
-"Toggle with Ctrl + n
 "-------------------------------------
 
 "#Indentline

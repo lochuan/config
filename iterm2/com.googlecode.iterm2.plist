@@ -366,10 +366,14 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>D065AF32-F656-4770-A9A3-25058321920B</string>
+	<key>DimOnlyText</key>
+	<false/>
 	<key>DoNotSetCtype</key>
 	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
+	<key>EnableProxyIcon</key>
+	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -417,6 +421,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HideScrollbar</key>
+	<false/>
 	<key>HideTab</key>
 	<false/>
 	<key>Hotkey</key>
@@ -475,12 +481,14 @@
 		<key>New Tab</key>
 		<string>@n</string>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>378 1010 445 103 -551 900 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>445 248 796 486 0 0 1440 900 </string>
+	<string>154 1189 796 486 -551 900 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>418 129 810 620 0 0 1440 878 </string>
+	<string>-551 1158 810 620 -551 900 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>176 71 810 620 0 0 1440 878 </string>
+	<string>743 254 810 620 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1200,6 +1208,8 @@
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>560835457.90285599</real>
 	<key>OpenArrangementAtStartup</key>
@@ -1208,6 +1218,8 @@
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>2</integer>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PasteSpecialChunkDelay</key>
 	<real>0.01</real>
 	<key>PasteSpecialChunkSize</key>
@@ -1224,6 +1236,8 @@
 	<dict/>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/tron/Documents/config/iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuickPasteBytesPerCall</key>
@@ -1239,11 +1253,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-10-10T04:00:23Z</date>
+	<date>2018-10-22T02:44:53Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.46884014423076925</real>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyle</key>
@@ -1255,6 +1271,8 @@
 		<string>Notes</string>
 	</array>
 	<key>TrimWhitespaceOnCopy</key>
+	<false/>
+	<key>UseBorder</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>

@@ -6,9 +6,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
 # Golang
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=$HOME/Goland
 
 # Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
@@ -17,7 +15,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:/Users/lochuan/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.bin:/usr/local/bin:$GOPATH:$PATH
 
 
 # Alias
