@@ -5,6 +5,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+# Default Editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # Golang
 export GOPATH=$HOME/Goland
 
@@ -15,11 +19,11 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:$HOME/.bin:/usr/local/bin:$GOPATH:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
 
 
 # Alias
-alias vi="/usr/local/bin/vim"
+alias vi="nvim"
 alias c="clear"
 
 # Transfer.sh
