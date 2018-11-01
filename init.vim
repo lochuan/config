@@ -10,6 +10,7 @@
     set laststatus=2
     set encoding=utf8
     set ruler
+    set splitright
     set hlsearch
     set scrolloff=3
     set nobackup
@@ -64,6 +65,10 @@
         nnoremap <leader>e :NERDTreeToggle<CR>
     "}
 
+    "Nerdtree {
+        nnoremap <leader>fg :FlyGrep<CR>
+    "}
+    
     "Vim-easy-align {
         xmap ga <Plug>(EasyAlign)
         nmap ga <Plug>(EasyAlign)
@@ -73,6 +78,7 @@
 "Plugins {{
     call plug#begin('~/.vim/plugged')
         Plug 'ludovicchabant/vim-gutentags'
+        Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-surround'
@@ -86,7 +92,7 @@
         Plug 'scrooloose/nerdcommenter'
         Plug 'Yggdroot/LeaderF'
         Plug 'junegunn/vim-easy-align'
-        Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
         Plug 'w0rp/ale'
         Plug 'scrooloose/nerdtree'
         Plug 'Yggdroot/indentLine'
@@ -136,15 +142,15 @@
     "}
 
     "Gutentags {
-    " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
-    let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+        " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+        let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
-    " 所生成的数据文件的名称
-    let g:gutentags_ctags_tagfile = '.tags'
+        " 所生成的数据文件的名称
+        let g:gutentags_ctags_tagfile = '.tags'
 
-    " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-    let s:vim_tags = expand('~/.cache/tags')
-    let g:gutentags_cache_dir = s:vim_tags
+        " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+        let s:vim_tags = expand('~/.cache/tags')
+        let g:gutentags_cache_dir = s:vim_tags
     "}
 
     "Indentline {
@@ -162,9 +168,10 @@
 
     "Deoplete {
         let g:deoplete#enable_at_startup = 1
+        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
         "#deoplete-go MAC
-        let g:deoplete#sources#go#gocode_binary = '/Users/tron/Goland/bin/gocode'
+        let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     "}
 
