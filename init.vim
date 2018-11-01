@@ -40,11 +40,24 @@
     "Basic {
         inoremap jk <ESC>`^
         let mapleader=";"
+
+        "# Window Split Moving
+        nnoremap <C-J> <C-W><C-J>
+        nnoremap <C-K> <C-W><C-K>
+        nnoremap <C-L> <C-W><C-L>
+        nnoremap <C-H> <C-W><C-H>
     "}
 
     "ALE {
-        nmap <silent> <leader>ne <Plug>(ale_next_wrap)
-        nmap <silent> <leader>fix :ALEFix<CR>
+        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+        nmap <silent> <leader>ax <Plug>(ale_fix)
+    "}
+
+    "LeaderF {
+        let g:Lf_ShortcutF = '<leader>ff'
+        let g:Lf_ShortcutB = '<leader>fb'
+        nmap <silent> <leader>fn :LeaderfFunction<CR>
     "}
 
     "Nerdtree {
@@ -59,27 +72,27 @@
 
 "Plugins {{
     call plug#begin('~/.vim/plugged')
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'wsdjeg/FlyGrep.vim'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'honza/vim-snippets'
-    Plug 'SirVer/ultisnips' 
-    Plug 'itchyny/lightline.vim'
-    Plug 'justinmk/vim-sneak'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'Yggdroot/LeaderF'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'junegunn/goyo.vim'
-    Plug 'w0rp/ale'
-    Plug 'scrooloose/nerdtree'
-    Plug 'Yggdroot/indentLine'
-    Plug 'pseewald/vim-anyfold'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
+        Plug 'ludovicchabant/vim-gutentags'
+        Plug 'tpope/vim-repeat'
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-surround'
+        Plug 'wsdjeg/FlyGrep.vim'
+        Plug 'sheerun/vim-polyglot'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'honza/vim-snippets'
+        Plug 'SirVer/ultisnips' 
+        Plug 'itchyny/lightline.vim'
+        Plug 'justinmk/vim-sneak'
+        Plug 'scrooloose/nerdcommenter'
+        Plug 'Yggdroot/LeaderF'
+        Plug 'junegunn/vim-easy-align'
+        Plug 'junegunn/goyo.vim'
+        Plug 'w0rp/ale'
+        Plug 'scrooloose/nerdtree'
+        Plug 'Yggdroot/indentLine'
+        Plug 'pseewald/vim-anyfold'
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        Plug 'zchee/deoplete-go', { 'do': 'make'}
     call plug#end()
 "}}
 
@@ -116,6 +129,10 @@
 
     "Nerdtree {
         let g:NERDTreeWinPos = "right"
+    "}
+
+    "LeaderF {
+        let g:Lf_WindowHeight = 0.35
     "}
 
     "Gutentags {
