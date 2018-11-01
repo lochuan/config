@@ -15,10 +15,10 @@ function backup(){
 function restore(){
     echo 'restore...'
     git pull
-    cp -f "$HOME/Documents/config/vimrc" "$HOME/.config/nvim/init.vim"
+    cp -f "$HOME/Documents/config/init.vim" "$HOME/.config/nvim/init.vim"
     cp -f "$HOME/Documents/config/zshrc" "$HOME/.zshrc"
     cp -f "$HOME/Documents/config/zimrc" "$HOME/.zimrc"
-    cp -R "$HOME/Documents/config/vim/colors/" "$HOME/.config/nvim/colors/"
+    cp -R "$HOME/Documents/config/nvim/colors/" "$HOME/.config/nvim/colors/"
 }
 
 if [ $# -ne 1 ]; then
