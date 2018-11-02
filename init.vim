@@ -166,12 +166,22 @@
         set foldlevel=10
     "}
 
+    "Codi {
+         let g:codi#interpreters = {
+       \ 'python': {
+           \ 'bin': 'python3',
+           \ 'prompt': '^\(>>>\|\.\.\.\) ',
+           \ },
+       \ }
+
+    "}
+    
     "Deoplete {
         let g:deoplete#enable_at_startup = 1
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
         "#deoplete-go Platform
-        let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
+        let g:deoplete#sources#go#gocode_binary = '/Users/tron/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     "}
 
