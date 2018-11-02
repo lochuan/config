@@ -170,7 +170,7 @@
         let g:deoplete#enable_at_startup = 1
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-        "#deoplete-go MAC
+        "#deoplete-go Platform
         let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     "}
