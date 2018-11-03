@@ -1,82 +1,6 @@
-"Basic Config{{
-    colorscheme gruvbox
-    filetype on
-    filetype indent on
-    syntax enable
-    syntax on
-    set tags=./tags;/
-    set cursorline
-    set cursorcolumn
-    set laststatus=2
-    set encoding=utf8
-    set ruler
-    set splitright
-    set hlsearch
-    set scrolloff=3
-    set nobackup
-    set noswapfile
-    set relativenumber number
-    set wildmenu
-    set background=dark
-    set gcr=a:block-blinkon0
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set wrap
-    set expandtab
-    set smarttab
-    set autoindent
-    set smartindent
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4"
-    set t_Co=256
-    set nocompatible
-    set backspace=indent,eol,start
-"}}
-
-"Key Mapping {{
-
-    "Basic {
-        inoremap jk <ESC>`^
-        let mapleader=";"
-
-        "# Window Split Moving
-        nnoremap <C-J> <C-W><C-J>
-        nnoremap <C-K> <C-W><C-K>
-        nnoremap <C-L> <C-W><C-L>
-        nnoremap <C-H> <C-W><C-H>
-    "}
-
-    "ALE {
-        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
-        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
-        nmap <silent> <leader>ax <Plug>(ale_fix)
-    "}
-
-    "LeaderF {
-        let g:Lf_ShortcutF = '<leader>ff'
-        let g:Lf_ShortcutB = '<leader>fb'
-        nmap <silent> <leader>fn :LeaderfFunction<CR>
-    "}
-
-    "Nerdtree {
-        nnoremap <leader>e :NERDTreeToggle<CR>
-    "}
-
-    "Nerdtree {
-        nnoremap <leader>fg :FlyGrep<CR>
-    "}
-    
-    "Vim-easy-align {
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
-    "}
-"}}
-
 "Plugins {{
     call plug#begin('~/.vim/plugged')
+        Plug 'morhetz/gruvbox'
         Plug 'ludovicchabant/vim-gutentags'
         Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
         Plug 'tpope/vim-repeat'
@@ -96,7 +20,6 @@
         Plug 'w0rp/ale'
         Plug 'scrooloose/nerdtree'
         Plug 'Yggdroot/indentLine'
-        Plug 'pseewald/vim-anyfold'
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         Plug 'zchee/deoplete-go', { 'do': 'make'}
     call plug#end()
@@ -143,7 +66,7 @@
 
     "Gutentags {
         " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
-        let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+        let g:gutentags_project_root = ['.git']
 
         " 所生成的数据文件的名称
         let g:gutentags_ctags_tagfile = '.tags'
@@ -159,11 +82,6 @@
         let g:indentLine_color_tty_light = 7 " (default: 4)
         let g:indentLine_color_dark = 1 " (default: 2)"
         let g:indentLine_char = '|'
-    "}
-
-    "Anyflod {
-        let AnyFoldActivate=1
-        set foldlevel=10
     "}
 
     "Codi {
@@ -186,3 +104,98 @@
     "}
 
 "}}
+
+"Basic Config{{
+    colorscheme gruvbox
+    filetype on
+    filetype plugin indent on
+    syntax enable
+    syntax on
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;
+    set autoread
+    set complete-=i
+    set nrformats-=octal
+    set incsearch
+    set cursorline
+    set sidescrolloff=5
+    set display+=lastline
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set formatoptions+=j
+    set cursorcolumn
+    set laststatus=2
+    set encoding=utf8
+    set ruler
+    set splitright
+    set hlsearch
+    set scrolloff=3
+    set nobackup
+    set noswapfile
+    set relativenumber number
+    set wildmenu
+    set background=dark
+    set gcr=a:block-blinkon0
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+    set wrap
+    set expandtab
+    set smarttab
+    set autoindent
+    set smartindent
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4"
+    set t_Co=256
+    set nocompatible
+    set backspace=indent,eol,start
+"}}
+
+"Key Mapping {{
+
+    "Basic {
+        "# jk as ESC
+        inoremap jk <ESC>`^
+        "# ; as leader key
+        let mapleader=";"
+        "# <Ctrl>_L as clean screen
+        nnoremap <silent> <leader>ch :nohlsearch<CR>
+        "# Quit without saving
+        nnoremap <silent> <leader>qq :q!<CR>
+        "# Save file
+        nnoremap <silent> <leader>sv :w<CR>
+
+        "# Window Split Moving
+        nnoremap <C-J> <C-W><C-J>
+        nnoremap <C-K> <C-W><C-K>
+        nnoremap <C-L> <C-W><C-L>
+        nnoremap <C-H> <C-W><C-H>
+    "}
+
+    "ALE {
+        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+        nmap <silent> <leader>ax <Plug>(ale_fix)
+    "}
+
+    "LeaderF {
+        let g:Lf_ShortcutF = '<leader>ff'
+        let g:Lf_ShortcutB = '<leader>fb'
+        nmap <silent> <leader>fn :LeaderfFunction<CR>
+    "}
+
+    "Nerdtree {
+        nnoremap <leader>e :NERDTreeToggle<CR>
+    "}
+
+    "Nerdtree {
+        nnoremap <leader>fg :FlyGrep<CR>
+    "}
+    
+    "Vim-easy-align {
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+    "}
+"}}
+
+
