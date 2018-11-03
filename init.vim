@@ -16,7 +16,6 @@
         Plug 'scrooloose/nerdcommenter'
         Plug 'Yggdroot/LeaderF'
         Plug 'junegunn/vim-easy-align'
-        Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
         Plug 'w0rp/ale'
         Plug 'scrooloose/nerdtree'
         Plug 'Yggdroot/indentLine'
