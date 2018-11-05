@@ -1,26 +1,74 @@
+
+"Key Mapping {{
+
+    "Basic {
+        "# jk as ESC
+        inoremap jk <ESC>`^
+        "# ; as leader key
+        let mapleader=";"
+        "# clean highlight
+        nnoremap <silent> <leader>ch :nohlsearch<CR>
+        "# Quit without saving
+        nnoremap <silent> <leader>qq :q!<CR>
+        "# Save file
+        nnoremap <silent> <leader>ss :w<CR>
+
+        "# Window Split Moving
+        nnoremap <C-J> <C-W><C-J>
+        nnoremap <C-K> <C-W><C-K>
+        nnoremap <C-L> <C-W><C-L>
+        nnoremap <C-H> <C-W><C-H>
+    "}
+
+    "ALE {
+        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+        nmap <silent> <leader>ax <Plug>(ale_fix)
+    "}
+
+    "LeaderF {
+        let g:Lf_ShortcutF = '<leader>ff'
+        let g:Lf_ShortcutB = '<leader>fb'
+        nmap <silent> <leader>fn :LeaderfFunction<CR>
+    "}
+
+    "Nerdtree {
+        nnoremap <leader>e :NERDTreeToggle<CR>
+    "}
+
+    "FlyGrep {
+        nnoremap <leader>fg :FlyGrep<CR>
+    "}
+    
+    "Vim-easy-align {
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+    "}
+"}}
+
 "Plugins {{
     call plug#begin('~/.vim/plugged')
-        Plug 'morhetz/gruvbox'
-        Plug 'ludovicchabant/vim-gutentags'
-        Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
-        Plug 'tpope/vim-repeat'
-        Plug 'tpope/vim-fugitive'
-        Plug 'tpope/vim-surround'
-        Plug 'wsdjeg/FlyGrep.vim'
-        Plug 'sheerun/vim-polyglot'
-        Plug 'jiangmiao/auto-pairs'
-        Plug 'honza/vim-snippets'
-        Plug 'SirVer/ultisnips' 
-        Plug 'itchyny/lightline.vim'
-        Plug 'justinmk/vim-sneak'
-        Plug 'scrooloose/nerdcommenter'
-        Plug 'Yggdroot/LeaderF'
-        Plug 'junegunn/vim-easy-align'
-        Plug 'w0rp/ale'
-        Plug 'scrooloose/nerdtree'
-        Plug 'Yggdroot/indentLine'
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'wsdjeg/FlyGrep.vim'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips' 
+    Plug 'itchyny/lightline.vim'
+    Plug 'justinmk/vim-sneak'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'Yggdroot/LeaderF'
+    Plug 'junegunn/vim-easy-align'
+    Plug 'w0rp/ale'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Yggdroot/indentLine'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
     call plug#end()
 "}}
 
@@ -28,6 +76,18 @@
 
     "Vim-sneak {
         let g:sneak#label = 1
+    "}
+
+    "Lightline {
+    let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
     "}
 
     "ALE {
@@ -56,7 +116,7 @@
     "}
 
     "Nerdtree {
-        let g:NERDTreeWinPos = "right"
+        let g:NERDTreeWinPos = "left"
     "}
 
     "LeaderF {
@@ -77,22 +137,21 @@
 
     "Indentline {
         let g:indentLine_color_term = 239
-        let g:indentLine_color_gui = '#A4E57E'
+        let g:indentLine_color_gui = '#6c6d6b'
         let g:indentLine_color_tty_light = 7 " (default: 4)
         let g:indentLine_color_dark = 1 " (default: 2)"
         let g:indentLine_char = '|'
     "}
 
     "Codi {
-         let g:codi#interpreters = {
-       \ 'python': {
-           \ 'bin': 'python3',
-           \ 'prompt': '^\(>>>\|\.\.\.\) ',
-           \ },
-       \ }
-
+        let g:codi#interpreters = {
+                \ 'python': {
+                \ 'bin': 'python3',
+                \ 'prompt': '^\(>>>\|\.\.\.\) ',
+                \ },
+                \ }
     "}
-    
+
     "Deoplete {
         let g:deoplete#enable_at_startup = 1
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -108,93 +167,46 @@
     colorscheme gruvbox
     filetype on
     filetype plugin indent on
+    set diffopt+=vertical
+    set termguicolors
+    set autoindent
+    set autoread
+    set background=dark
+    set backspace=indent,eol,start
+    set complete-=i
+    set cursorcolumn
+    set cursorline
+    set display+=lastline
+    set encoding=utf8
+    set expandtab
+    set formatoptions+=j
+    set gcr=a:block-blinkon0
+    set hlsearch
+    set incsearch
+    set laststatus=2
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set nobackup
+    set nocompatible
+    set noswapfile
+    set nrformats-=octal
+    set relativenumber number
+    set ruler
+    set scrolloff=3
+    set shiftwidth=4
+    set sidescrolloff=5
+    set smartindent
+    set smarttab
+    set softtabstop=4"
+    set splitright
+    set splitbelow
+    set showcmd             " Show (partial) command in status line.
+    set showmatch           " Show matching brackets.
+    set showmode            " Show current mode.
+    set t_Co=256
+    set tabstop=4
+    set wildmenu
+    set wrap
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;
     syntax enable
     syntax on
-    setglobal tags-=./tags tags-=./tags; tags^=./tags;
-    set autoread
-    set complete-=i
-    set nrformats-=octal
-    set incsearch
-    set cursorline
-    set sidescrolloff=5
-    set display+=lastline
-    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-    set formatoptions+=j
-    set cursorcolumn
-    set laststatus=2
-    set encoding=utf8
-    set ruler
-    set splitright
-    set hlsearch
-    set scrolloff=3
-    set nobackup
-    set noswapfile
-    set relativenumber number
-    set wildmenu
-    set background=dark
-    set gcr=a:block-blinkon0
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-    set wrap
-    set expandtab
-    set smarttab
-    set autoindent
-    set smartindent
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4"
-    set t_Co=256
-    set nocompatible
-    set backspace=indent,eol,start
 "}}
-
-"Key Mapping {{
-
-    "Basic {
-        "# jk as ESC
-        inoremap jk <ESC>`^
-        "# ; as leader key
-        let mapleader=";"
-        "# <Ctrl>_L as clean screen
-        nnoremap <silent> <leader>ch :nohlsearch<CR>
-        "# Quit without saving
-        nnoremap <silent> <leader>qq :q!<CR>
-        "# Save file
-        nnoremap <silent> <leader>sv :w<CR>
-
-        "# Window Split Moving
-        nnoremap <C-J> <C-W><C-J>
-        nnoremap <C-K> <C-W><C-K>
-        nnoremap <C-L> <C-W><C-L>
-        nnoremap <C-H> <C-W><C-H>
-    "}
-
-    "ALE {
-        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
-        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
-        nmap <silent> <leader>ax <Plug>(ale_fix)
-    "}
-
-    "LeaderF {
-        let g:Lf_ShortcutF = '<leader>ff'
-        let g:Lf_ShortcutB = '<leader>fb'
-        nmap <silent> <leader>fn :LeaderfFunction<CR>
-    "}
-
-    "Nerdtree {
-        nnoremap <leader>e :NERDTreeToggle<CR>
-    "}
-
-    "Nerdtree {
-        nnoremap <leader>fg :FlyGrep<CR>
-    "}
-    
-    "Vim-easy-align {
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
-    "}
-"}}
-
-
