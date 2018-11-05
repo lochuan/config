@@ -44,6 +44,14 @@
         xmap ga <Plug>(EasyAlign)
         nmap ga <Plug>(EasyAlign)
     "}
+    
+    "Fugitive {
+        nmap <silent> <leader>gs :Gstatus<CR>
+        nmap <silent> <leader>gb :Gblame<CR>
+        nmap <silent> <leader>gr :Gread<CR>
+        nmap <silent> <leader>gw :Gwrite<CR>
+        nmap <silent> <leader>gd :Gdiff<CR>
+    "}
 "}}
 
 "Plugins {{
@@ -53,8 +61,9 @@
     Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
-    Plug 'wsdjeg/FlyGrep.vim'
+    Plug 'wsdjeg/FlyGrep.vim', { 'on': 'FlyGrep' }
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
     Plug 'honza/vim-snippets'
@@ -62,10 +71,11 @@
     Plug 'itchyny/lightline.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'Yggdroot/LeaderF'
+    Plug 'Yggdroot/LeaderF', { 'on': [ 'LeaderfFile', 'LeaderfBufer', 'LeaderfFunction'] }
     Plug 'junegunn/vim-easy-align'
     Plug 'w0rp/ale'
-    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     Plug 'Yggdroot/indentLine'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -117,6 +127,9 @@
 
     "Nerdtree {
         let g:NERDTreeWinPos = "left"
+        let NERDTreeAutoDeleteBuffer = 1
+        let NERDTreeMinimalUI = 1
+        let NERDTreeDirArrows = 1
     "}
 
     "LeaderF {
@@ -157,7 +170,7 @@
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
         "#deoplete-go Platform
-        let g:deoplete#sources#go#gocode_binary = '/Users/tron/Goland/bin/gocode'
+        let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     "}
 
