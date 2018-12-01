@@ -12,6 +12,8 @@
         nnoremap <silent> <leader>qq :q!<CR>
         "# Save file
         nnoremap <silent> <leader>ss :w<CR>
+        "# Remove trailing space
+        nnoremap <silent> <leader>rt :call StripTrailingWhitespace()<CR>
 
         "# Window Split Moving
         nnoremap <C-J> <C-W><C-J>
@@ -51,6 +53,7 @@
         nmap <silent> <leader>gr :Gread<CR>
         nmap <silent> <leader>gw :Gwrite<CR>
         nmap <silent> <leader>gd :Gdiff<CR>
+        nmap <silent> <leader>gp :Gpull<CR>
     "}
 "}}
 
@@ -58,7 +61,6 @@
     call plug#begin('~/.vim/plugged')
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'ludovicchabant/vim-gutentags'
-    Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
@@ -71,7 +73,7 @@
     Plug 'itchyny/lightline.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'Yggdroot/LeaderF', { 'on': [ 'LeaderfFile', 'LeaderfBufer', 'LeaderfFunction'] }
+    Plug 'Yggdroot/LeaderF'
     Plug 'junegunn/vim-easy-align'
     Plug 'w0rp/ale'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -87,17 +89,17 @@
     "Vim-sneak {
         let g:sneak#label = 1
     "}
-
+    
     "Lightline {
-    let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+        let g:lightline = {
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+          \ },
+          \ 'component_function': {
+          \   'gitbranch': 'fugitive#head'
+          \ },
+          \ }
     "}
 
     "ALE {
@@ -156,21 +158,12 @@
         let g:indentLine_char = '|'
     "}
 
-    "Codi {
-        let g:codi#interpreters = {
-                \ 'python': {
-                \ 'bin': 'python3',
-                \ 'prompt': '^\(>>>\|\.\.\.\) ',
-                \ },
-                \ }
-    "}
-
     "Deoplete {
         let g:deoplete#enable_at_startup = 1
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
         "#deoplete-go Platform
-        let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
+        let g:deoplete#sources#go#gocode_binary = '/Users/tron/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
     "}
 
@@ -180,6 +173,7 @@
     colorscheme gruvbox
     filetype on
     filetype plugin indent on
+    autocmd FileType markdown let g:indentLine_enabled=0
     set diffopt+=vertical
     set termguicolors
     set autoindent
@@ -222,4 +216,16 @@
     setglobal tags-=./tags tags-=./tags; tags^=./tags;
     syntax enable
     syntax on
+"}}
+
+"Functions {{
+function StripTrailingWhitespace()
+    if !&binary && &filetype != 'diff'
+        normal mz
+        normal Hmy
+        %s/\s\+$//e
+        normal 'yz<CR>
+        normal `z
+    endif
+endfunction
 "}}
