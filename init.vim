@@ -39,6 +39,7 @@
     "}
 
     "FlyGrep {
+        "install ack
         nnoremap <leader>fg :FlyGrep<CR>
     "}
     
@@ -53,7 +54,6 @@
         nmap <silent> <leader>gr :Gread<CR>
         nmap <silent> <leader>gw :Gwrite<CR>
         nmap <silent> <leader>gd :Gdiff<CR>
-        nmap <silent> <leader>gp :Gpull<CR>
     "}
 "}}
 
@@ -80,7 +80,9 @@
     Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     Plug 'Yggdroot/indentLine'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+    Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    Plug 'sebastianmarkow/deoplete-rust', {'for': 'rust'}
     call plug#end()
 "}}
 
@@ -103,6 +105,7 @@
     "}
 
     "ALE {
+        " pip3 install flake8 yapf
         let g:ale_warn_about_trailing_whitespace = 0
         let g:ale_linters = {'python': ['flake8'], 'go': ['gometalinter']}
         let g:ale_fixers = {'python': ['yapf'], 'go': ['gofmt', 'goimports']}
@@ -139,6 +142,7 @@
     "}
 
     "Gutentags {
+        " install universal-ctags
         " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
         let g:gutentags_project_root = ['.git']
 
@@ -163,8 +167,12 @@
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
         "#deoplete-go Platform
-        let g:deoplete#sources#go#gocode_binary = '/Users/tron/Goland/bin/gocode'
+        let g:deoplete#sources#go#gocode_binary = '/home/lochuan/Goland/bin/gocode'
         let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+        "#deoplete-rust Platform
+        let g:deoplete#sources#rust#racer_binary='/home/lochuan/.cargo/bin/racer'
+        let g:deoplete#sources#rust#rust_source_path='/home/lochuan/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
     "}
 
 "}}
