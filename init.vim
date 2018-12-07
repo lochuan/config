@@ -81,7 +81,9 @@
     Plug 'Yggdroot/indentLine'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+    "pip3 install jedi
     Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    "install racer
     Plug 'sebastianmarkow/deoplete-rust', {'for': 'rust'}
     call plug#end()
 "}}
