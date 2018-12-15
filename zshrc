@@ -10,6 +10,9 @@ export TERM=xterm-256color
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# Java
+export JAVA_HOME=/usr/lib/java/jdk1.8.0_191
+
 # Golang
 export GOPATH=$HOME/Goland
 
@@ -20,7 +23,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$JAVA_HOME/bin:$PATH
 
 
 # Alias
