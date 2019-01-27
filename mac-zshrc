@@ -10,8 +10,8 @@ export TERM=xterm-256color
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Java
-export JAVA_HOME=/usr/lib/java/jdk1.8.0_191
+# Default Shell
+export SHELL=/usr/local/bin/zsh
 
 # Golang
 export GOPATH=$HOME/Goland
@@ -23,7 +23,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$JAVA_HOME/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$PATH
 
 
 # Alias
@@ -42,7 +42,6 @@ alias it2setkeylabel=~/.iterm2/it2setkeylabel
 alias it2ul=~/.iterm2/it2ul
 alias it2universion=~/.iterm2/it2universion
 
-# Transfer.sh
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; } 
-
+# Java Enviroment Control
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
