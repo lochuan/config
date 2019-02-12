@@ -1,0 +1,29 @@
+#
+# User configuration sourced by interactive shells
+#
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export TERM=xterm-256color
+
+# Default Editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Golang
+export GOPATH=$HOME/Goland
+
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/.local/usr/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:$GOPATH/bin:$JAVA_HOME/bin:$PATH
+
+
+# Alias
+alias c="clear"
+alias python="python3"
+alias vi="nvim"

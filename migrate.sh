@@ -36,7 +36,7 @@ function darwin_r(){
   git pull
   cp -f "$HOME/Documents/config/mac-zshrc" "$HOME/.zshrc"
   cp -f "$HOME/Documents/config/mac-zimrc" "$HOME/.zimrc"
-  cp -f "$HOME/Documents/config/SpaceVim.d/*" "$HOME/.SpaceVim.d/"
+  cp -a "$HOME/Documents/config/SpaceVim.d/." "$HOME/.SpaceVim.d/"
 }
 
 function linux_r(){
@@ -44,7 +44,7 @@ function linux_r(){
   git pull
   cp -f "$HOME/Documents/config/linux-zshrc" "$HOME/.zshrc"
   cp -f "$HOME/Documents/config/linux-zimrc" "$HOME/.zimrc"
-  cp -f "$HOME/Documents/config/SpaceVim.d/*" "$HOME/.SpaceVim.d/"
+  cp -a "$HOME/Documents/config/SpaceVim.d/." "$HOME/.SpaceVim.d/"
 }
 
 function backup(){
