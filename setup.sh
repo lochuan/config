@@ -2,6 +2,8 @@
 
 set -e
 
+OS=$(uname)
+
 function i_git(){
   echo 'Install git...'
   if ! [ -x "$(command -v git)" ]; then
@@ -23,7 +25,9 @@ function i_zsh(){
     fi
   fi
   echo 'Install zim'
-  git clone --recursive https://github.com/zimfw/zimfw.git ${ZDOTDIR:-${HOME}}/.zim
+  if [ ! -d "$HOME/.zim" ]; then
+   git clone --recursive https://github.com/zimfw/zimfw.git ${ZDOTDIR:-${HOME}}/.zim
+  fi
 }
 
 
@@ -31,9 +35,9 @@ function i_pip3(){
   echo 'Install pip3...'
   if ! [ -x "$(command -v pip3)" ]; then
     if [[ $OS == Darwin ]]; then
-      $(brew install python3)
+      brew install python3
     elif [[ $OS == Linux ]]; then
-      $(sudo apt install python3-pip -y)
+      sudo apt install python3-pip -y
     fi
   fi
 
@@ -47,10 +51,12 @@ function i_pip3(){
 }
 
 function i_golang(){
-  if [[ $OS == Darwin ]]; then
-    $(brew install golang)
-  elif [[ $OS == Linux ]]; then
-    $(sudo apt-get install golang -y)
+  if ! [ -x "$(command -v go)" ]; then
+    if [[ $OS == Darwin ]]; then
+      brew install golang
+    elif [[ $OS == Linux ]]; then
+      sudo apt-get install golang -y
+    fi
   fi
 }
 
@@ -58,31 +64,33 @@ function i_neovim(){
   echo 'Install neovim...'
   if ! [ -x "$(command -v nvim)" ]; then
     if [[ $OS == Darwin ]]; then
-      $(brew install neovim)
+      brew install neovim
     elif [[ $OS == Linux ]]; then
-      $(sudo apt install neovim -y)
+      sudo apt install neovim -y
     fi
   fi
 
   # neovim python support
-  $(pip3 install -U neovim)
+  pip3 install -U neovim
 }
 
 function i_spacevim(){
-  $(curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim)
-  i_spacevim_ag
+  if [ ! -d "$HOME/.SpaceVim" ]; then
+    curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim
+  fi
   i_spacevim_python
+  i_spacevim_ag
 }
 
 function i_spacevim_python(){
-  $(pip3 install flake8,yapf,autoflake,isort,jedi)
+  pip3 install -U flake8 yapf autoflake isort jedi
 }
 
 function i_spacevim_ag(){
   if [[ $OS == Darwin ]]; then
-    $(brew install the_silver_searcher)
+    brew install the_silver_searcher
   elif [[ $OS == Linux ]]; then
-    $(sudo apt-get install silversearcher-ag -y)
+    sudo apt-get install silversearcher-ag -y
   fi
 }
 
