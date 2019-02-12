@@ -23,7 +23,7 @@ function darwin_b(){
 function linux_b(){
   echo 'Linux config backup..'
   cp -f "$HOME/.zshrc" "$HOME/Documents/config/linux-zshrc"
-  cp -f "$HOME/.zimrc" "$HOME/Documents/config/Linux-zimrc"
+  cp -f "$HOME/.zimrc" "$HOME/Documents/config/linux-zimrc"
   create_config_dir
   cp -a "$HOME/.SpaceVim.d/." "$HOME/Documents/config/SpaceVim.d"
   git add .
