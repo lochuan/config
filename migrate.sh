@@ -3,11 +3,18 @@ set -e
 
 OS=$(uname)
 
+function create_config_dir(){
+  if [ ! -d "$HOME/Documents/config/SpaceVim.d" ]; then
+    mkdir $HOME/Documents/config/SpaceVim.d
+  fi
+}
+
 function darwin_b(){
   echo 'Mac config backup..'
   cp -f "$HOME/.zshrc" "$HOME/Documents/config/mac-zshrc"
   cp -f "$HOME/.zimrc" "$HOME/Documents/config/mac-zimrc"
-  cp -Rf "$HOME/.SpaceVim.d" "$HOME/Documents/config/SpaceVim.d"
+  create_config_dir
+  cp -a "$HOME/.SpaceVim.d/." "$HOME/Documents/config/SpaceVim.d/"
   git add .
   git commit -a -m "Mac update time: $(date)"
   git push origin HEAD
@@ -17,7 +24,8 @@ function linux_b(){
   echo 'Linux config backup..'
   cp -f "$HOME/.zshrc" "$HOME/Documents/config/linux-zshrc"
   cp -f "$HOME/.zimrc" "$HOME/Documents/config/Linux-zimrc"
-  cp -Rf "$HOME/.SpaceVim.d" "$HOME/Documents/config/SpaceVim.d"
+  create_config_dir
+  cp -a "$HOME/.SpaceVim.d/." "$HOME/Documents/config/SpaceVim.d"
   git add .
   git commit -a -m "Linux update time: $(date)"
   git push origin HEAD
@@ -28,7 +36,7 @@ function darwin_r(){
   git pull
   cp -f "$HOME/Documents/config/mac-zshrc" "$HOME/.zshrc"
   cp -f "$HOME/Documents/config/mac-zimrc" "$HOME/.zimrc"
-  cp -Rf "$HOME/Documents/config/SpaceVim.d" "$HOME/.SpaceVim.d"
+  cp -f "$HOME/Documents/config/SpaceVim.d/*" "$HOME/.SpaceVim.d/"
 }
 
 function linux_r(){
@@ -36,7 +44,7 @@ function linux_r(){
   git pull
   cp -f "$HOME/Documents/config/linux-zshrc" "$HOME/.zshrc"
   cp -f "$HOME/Documents/config/linux-zimrc" "$HOME/.zimrc"
-  cp -Rf "$HOME/Documents/config/SpaceVim.d" "$HOME/.SpaceVim.d"
+  cp -f "$HOME/Documents/config/SpaceVim.d/*" "$HOME/.SpaceVim.d/"
 }
 
 function backup(){

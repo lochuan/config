@@ -7,7 +7,6 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = true
-    filemanager = "nerdtree"
     enable_cursorcolumn = 1
     terminal_cursor_shape = 1
 
@@ -34,6 +33,7 @@ auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
 name = 'checkers'
+show_cursor_error = false
 
 [[layers]]
 name = 'edit'
@@ -75,3 +75,11 @@ name = "lang#markdown"
 
 [[layers]]
 name = "lang#sh"
+
+[[layers]]
+name = "lang#java"
+
+
+[[custom_plugins]]
+name = 'sheerun/vim-polyglot'
+merged = 0
