@@ -5,7 +5,7 @@
     statusline_separator = "arrow"
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
-    enable_tabline_filetype_icon = true
+    enable_tabline_filetype_icon = false
     enable_statusline_display_mode = true
     enable_cursorcolumn = 1
     terminal_cursor_shape = 1
