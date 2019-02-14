@@ -28,8 +28,7 @@ name = 'core#tabline'
 
 [[layers]]
 name = 'autocomplete'
-auto-completion-return-key-behavior = "complete"
-auto-completion-tab-key-behavior = "smart"
+auto-completion-return-key-behavior = "smart"
 
 [[layers]]
 name = 'checkers'
@@ -45,7 +44,10 @@ name = 'format'
 name = 'denite'
 
 [[layers]]
-  name = "git"
+name = "git"
+
+[[layers]]
+name = "VersionControl"
 
 [[layers]]
 name = "tags"
@@ -62,9 +64,6 @@ name = 'ui'
 name = "lang#python"
 
 [[layers]]
-name = "lang#c"
-
-[[layers]]
 name = "lang#go"
 
 [[layers]]
@@ -72,12 +71,6 @@ name = "lang#html"
 
 [[layers]]
 name = "lang#markdown"
-
-[[layers]]
-name = "lang#sh"
-
-[[layers]]
-name = "lang#java"
 
 
 [[custom_plugins]]
