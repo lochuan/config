@@ -15,6 +15,7 @@ export SHELL=/bin/zsh
 
 # Golang
 export GOPATH=$HOME/Goland
+export GOPROXY=https://goproxy.io
 
 # Python
 export PYTHON=$HOME/Library/Python/3.7/bin
@@ -22,11 +23,14 @@ export PYTHON=$HOME/Library/Python/3.7/bin
 # Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
+# Rust env
+export CARGO="$HOME/.cargo/bin"
+
 # Start zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$PYTHON:$PATH
+export PATH=$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$PYTHON:$CARGO:$PATH
 
 
 # Alias

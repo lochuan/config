@@ -8,8 +8,7 @@ buffer_index_type = 4
 enable_tabline_filetype_icon = true
 enable_statusline_display_mode = true
 enable_cursorcolumn = 1
-terminal_cursor_shape = 0
-
+terminal_cursor_shape = 1
 
 [[layers]]
 name = "default"
@@ -30,7 +29,7 @@ name = 'core#tabline'
 name = 'autocomplete'
 auto-completion-return-key-behavior = "nil"
 auto-completion-tab-key-behavior = "smart"
-auto-completion-delay = 200
+auto-completion-delay = 180
 
 [[layers]]
 name = 'checkers'
@@ -69,11 +68,7 @@ name = "lang#python"
 name = "lang#go"
 
 [[layers]]
-name = "lang#html"
+name = "lang#rust"
 
 [[layers]]
-name = "lang#markdown"
-
-[[custom_plugins]]
-name = 'sheerun/vim-polyglot'
-merged = 0
+name = "lang#html"
